@@ -1,0 +1,72 @@
+<p>property-bind works!</p>
+
+<section class="property-binding">
+  <article>
+    <h3>Interpolation</h3>
+    <p>{{ url }}</p>
+    <p>O resultado de 1 + 1 é {{ 1 + 1 }}</p>
+    <p>O resultado de 1 + 1 não é {{ 1 + 1 + getValor() }}</p>
+    <p>Curso de angular {{ cursoAngular && getCurtirCurso() }}</p>
+  </article>
+
+  <article>
+    <h3>Property biding</h3>
+    <img [src]="urlImagem" alt="" />
+  </article>
+
+  <article>
+    <h3>Property biding</h3>
+    <img [src]="urlImagem" alt="" />
+  </article>
+
+  <article>
+    <h3>Class e Style biding</h3>
+    <div>
+      Selecione uma classe:
+      <select #classe (change)="(0)">
+        <option value="alert-primary">Alerta </option>
+        <option value="alert-secondary">Waring</option>
+        <option value="alert-success">Success</option>
+        <option value="alert-danger">Erro</option>
+      </select>
+      <br /><br />
+
+      <div
+        class="alert "
+        role="alert"
+        [class.alert-primary]="classe.value == 'alert-primary'"
+      >
+        Um simples alerta primary. Olha só!
+      </div>
+      <div
+        class="alert "
+        role="alert"
+        [class.alert-secondary]="classe.value == 'alert-secondary'"
+      >
+        Um simples alerta secondary. Olha só!
+      </div>
+      <div
+        class="alert "
+        role="alert"
+        [class.alert-success]="classe.value == 'alert-success'"
+      >
+        Um simples alerta success. Olha só!
+      </div>
+      <div
+        class="alert "
+        role="alert"
+        [class.alert-danger]="classe.value == 'alert-danger'"
+      >
+        Um simples alerta danger. Olha só!
+      </div>
+    </div>
+
+    <div
+      class="alert alert-danger"
+      role="alert"
+      [style.display]="classe.value == 'alert-danger' ? 'block' : 'none'"
+    >
+      Errou
+    </div>
+  </article>
+</section>
