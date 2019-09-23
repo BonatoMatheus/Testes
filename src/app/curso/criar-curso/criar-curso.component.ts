@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 
 import { CursoService } from './../services/curso.service';
+import { from } from 'rxjs';
+import { Curso } from '../model/curso';
 
 @Component({
   selector: 'app-criar-curso',
@@ -9,22 +11,22 @@ import { CursoService } from './../services/curso.service';
 })
 export class CriarCursoComponent implements OnInit {
 
-  public cursos: string[] = [];
-  public novidades: string[] = [];
+
+  public novidades: Curso[] = [];
 
 
   constructor(private cursoService: CursoService) {
-    this.cursos = this.cursoService.getCursos();
+    //this.cursos = this.cursoService.getCursos();
   }
 
   ngOnInit() {
+    /*from(this.cursoService.emitirCursoCriado)
+    .subscribe(x => {
+      this.novidades.push(x);
+    }
+    );*/
     this.cursoService.emitirCursoCriado.subscribe(x =>
       this.novidades.push(x)
     );
   }
-
-  onAddCurso(curso: string) {
-    this.cursoService.postCurso(curso);
-  }
-
 }

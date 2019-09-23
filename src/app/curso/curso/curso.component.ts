@@ -2,6 +2,7 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 
 import { CursoService } from '../services/curso.service';
+import { Curso } from '../model/curso';
 
 @Component({
   selector: 'app-curso',
@@ -10,18 +11,22 @@ import { CursoService } from '../services/curso.service';
 })
 export class CursoComponent implements OnInit {
   
-  public curso: string;
-  public cursos: string[] = [];
+
+ 
+  public cursos: Curso[] = [];
+  public curso: Curso = {};
   public valor: number = 5;
   //deletarCiclo: boolean = false;
-  
 
-  constructor(private CursoService: CursoService) {
-    this.curso = 'Curso Angular';
-    this.cursos = this.CursoService.getCursos();
+  constructor(private cursoService: CursoService) {
+    this.cursoService.getCursos().subscribe(result => {
+      this.cursos = result;
+    });
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    
+  }
 
   mudarValor() {
     this.valor++;
@@ -33,5 +38,14 @@ export class CursoComponent implements OnInit {
 
   destruirCiclo() {
    // this.deletarCiclo = true;
+  }
+
+  onAddCurso(curso: Curso) {
+    this.cursoService.postCurso(curso);
+    this.curso  = { 
+      nome: "",
+      descricao: "",
+      ordem: 0
+    }
   }
 }

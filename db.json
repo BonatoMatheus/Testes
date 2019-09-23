@@ -1,0 +1,28 @@
+{
+  "cursos": [
+    {
+      "id": 1,
+      "nome": "Angular",
+      "descricao": "Curso Angular",
+      "ordem": 1
+    },
+    {
+      "id": 2,
+      "nome": "Java",
+      "descricao": "Curso Java",
+      "ordem": 2
+    },
+    {
+      "id": 3,
+      "nome": "React",
+      "descricao": "Curso React",
+      "ordem": 3
+    },
+    {
+      "nome": "Type script",
+      "descricao": "Curso Type script",
+      "ordem": 4,
+      "id": 4
+    }
+  ]
+}

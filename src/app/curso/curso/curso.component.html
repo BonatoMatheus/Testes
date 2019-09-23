@@ -18,5 +18,29 @@
 </div> -->
 
 <div>
+  <label>Nome do curso</label>
+  <input type="text" [(ngModel)]="curso.nome">
+</div>
+<div>
+  <label>Descrição</label>
+  <input type="text" [(ngModel)]="curso.descricao">
+</div>
+<div>
+  <label>Ordem</label>
+  <input type="number" [(ngModel)]="curso.ordem">
+</div>
+
+<button class="btn btn-primary" (click)=onAddCurso(curso)>Add curso</button>
+
+<div>
+  <p>Lista de cursos:</p>
+  <ul>
+    <li *ngFor="let curso of cursos">
+      {{ curso.nome }} / {{ curso.descricao }} / {{ curso.ordem }}
+    </li>
+  </ul>
+</div>
+
+<div>
   <app-criar-curso></app-criar-curso>
 </div>
