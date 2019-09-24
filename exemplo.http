@@ -2,11 +2,44 @@
 
 ###
 
+GET http://localhost:3000/cursos/4 HTTP/1.1
+content-type: application/json
+
+{     
+    "nome": "Type script",
+    "descricao": "Curso Type script",
+    "ordem": 4        
+}
+
+###
+
 POST http://localhost:3000/cursos HTTP/1.1
 content-type: application/json
 
 {     
     "nome": "Type script",
+    "descricao": "Curso Type script",
+    "ordem": 4        
+}
+
+###
+
+PUT http://localhost:3000/cursos/4 HTTP/1.1
+content-type: application/json
+
+{     
+    "nome": "TS",
+    "descricao": "Curso Type script",
+    "ordem": 4        
+}
+
+###
+
+DELETE http://localhost:3000/cursos/4 HTTP/1.1
+content-type: application/json
+
+{     
+    "nome": "TS",
     "descricao": "Curso Type script",
     "ordem": 4        
 }
