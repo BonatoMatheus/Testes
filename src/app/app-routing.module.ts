@@ -6,11 +6,15 @@ const routes: Routes = [
   {
     path: '', 
     pathMatch: 'full', 
-    redirectTo: 'cursos'
+    redirectTo: 'upload'
   },
   {
     path: 'cursos',
     loadChildren: () => import('./cursos/cursos.module').then(m => m.CursosModule)
+  },
+  {
+    path: 'upload',
+    loadChildren: () => import('./upload/upload.module').then(m => m.UploadModule)
   }
 ];
 
